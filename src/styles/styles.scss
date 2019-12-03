@@ -1,0 +1,268 @@
+//----- ADVERTENCIA -----//
+/*
+* Código SCSS elaborado con fines de apoyar el ejercicio en React
+* Utilizar bajo su propio riesgo
+* Coman frutas y verduras
+*
+* Su amigo: Juan Disain
+*/
+//----- FINAL DE LA ADVERTENCIA -----//
+
+//----- Layout - base -----//
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+  
+  :root {
+    --spacing: 0.75rem;
+  }
+  
+  body {
+    font-family: sans-serif;
+    background: #102132
+  }
+  
+  main {
+    margin: 0 auto;
+    max-width: 1500px;
+    padding: 2rem 1rem;
+  }
+  
+  h1 {
+    color: white;
+    margin-bottom: 3rem;
+    font-size: 2.5rem;
+  }
+  
+  h2 {
+    margin-bottom: 1rem;
+    color: white
+  }
+  
+  section {
+    margin-bottom: 4rem;
+    padding: 1rem;
+    background: #0c1926;
+    border-radius: 8px; 
+  }
+  
+  .contenedor-jugadores {
+    overflow: auto;
+    padding-bottom: 2rem;
+  }
+  
+  section>div:not(.cancha):not(.contenedor-jugadores) {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 2rem;
+    
+    @media screen and (min-width: 640px) {
+      grid-template-columns: repeat(6, 1fr);
+    }
+  
+  }
+  
+  
+  article img {
+    --size: 4.5rem;
+    width: var(--size);
+    height: var(--size);
+    object-fit: cover;
+    border-radius: 100%;
+    margin-bottom: var(--spacing);
+  }
+  
+  //----- Botones -----//
+  button {
+    border: none;
+    cursor: pointer;
+    outline: none;
+  }
+  
+  //----- Jugadores -----//
+  
+  .jugador {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+    border-radius: 0.25rem;
+    box-shadow: 0 2px 4px 2px rgba(#000, 0.05);
+    border: 1px solid #104266;
+  
+    h3 {
+      margin-bottom: var(--spacing);
+      color: white;
+      font-weight: normal;
+    }
+  
+    button {
+      line-height: 2rem;
+      padding: 0 1rem;
+      border-radius: 1rem;
+    }
+  
+    button:first-child {
+      $color: #2A8CE1;
+      color: #fff;
+      background-color: $color;
+      margin-right: var(--spacing);
+  
+      &:hover {
+        background-color: darken($color, 10);
+      }
+    }
+  
+    button:nth-child(2) {
+      background: rgb(83, 87, 90);
+      color: white;
+      border: 1px solid var(--color);
+  
+      &:hover {
+        background-color: rgb(58, 62, 65);
+        color: #fff;
+      }
+  
+    }
+  
+  }
+  
+  //----- Titular -----//
+  .titular,
+  .suplente {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: .5s;
+  
+    img {
+      margin-bottom: 0;
+    }
+  
+    div {
+      position: relative;
+    }
+  
+    p {
+      color: #fff;
+      background-color: rgba(#000, 0.5);
+      padding: 0 1rem;
+      line-height: 2;
+      border-radius: 1rem;
+      font-size: 0.9rem;
+    }
+  
+    button {
+      $color: #E40320;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      right: 0;
+      top: 0;
+      color: #fff;
+      width: 1.15rem;
+      height: 1.15rem;
+      border-radius: 50%;
+      background-color: $color;
+      display: none;
+  
+      &:hover {
+        background-color: darken($color, 5);
+      }
+  
+    }
+  
+    &:hover {
+        button {
+            display: flex;
+        }
+    }
+  
+  }
+  
+  //----- Cancha de futbol -----//
+  .cancha {
+    margin: 0 auto;
+    width: 75%;
+    position: relative;
+  
+    .titular {
+      position: absolute;
+  
+      img {
+        --size: 3rem;
+      }
+  
+      p {
+  
+        @media screen and (max-width: 640px) {
+          display: none;
+        }
+  
+      }
+  
+    }
+  
+    //----- Posiciones de los jugadores -----//
+  
+    .titular:first-child {
+      left: 5%;
+      top: 50%;
+      transform: translateY(-25%);
+    }
+  
+    .titular:nth-child(2) {
+      left: 30%;
+      top: 10%;
+    }
+  
+    .titular:nth-child(3) {
+      left: 25%;
+      top: 30%;
+    }
+  
+    .titular:nth-child(4) {
+      left: 25%;
+      top: 50%;
+    }
+  
+    .titular:nth-child(5) {
+      left: 30%;
+      top: 75%;
+    }
+  
+    .titular:nth-child(6) {
+      left: 50%;
+      top: 30%;
+      transform: translateX(-50%);
+    }
+  
+    .titular:nth-child(7) {
+      left: 50%;
+      top: 55%;
+      transform: translateX(-50%);
+    }
+  
+    .titular:nth-child(8) {
+      left: 60%;
+      top: 15%;
+    }
+  
+    .titular:nth-child(9) {
+      left: 60%;
+      top: 70%;
+    }
+  
+    .titular:nth-child(10) {
+      left: 70%;
+      top: 50%;
+    }
+  
+    .titular:nth-child(11) {
+      left: 80%;
+      top: 30%;
+    }
+  
+  }
